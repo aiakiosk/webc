@@ -122,6 +122,7 @@ for x in $( cmdline ); do
 	printer=*)
 		echo $x
 		echo ${x#printer=}
+		sleep 2
 		p="$( /bin/busybox httpd -d ${x#printer=} )"
 		echo $?
 		sleep 1
