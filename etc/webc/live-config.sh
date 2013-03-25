@@ -120,8 +120,6 @@ for x in $( cmdline ); do
 		;;
 
 	printer=*)
-		echo HERE
-		printenv
 		echo $x
 		echo ${x#printer=}
 		p="$( /bin/busybox httpd -d ${x#printer=} )"
