@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # Setting up Webconverger system as root user
 . /etc/webc/functions.sh
 . /etc/webc/webc.conf
