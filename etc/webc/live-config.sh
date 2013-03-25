@@ -123,7 +123,14 @@ for x in $( cmdline ); do
 		echo $x
 		echo ${x#printer=}
 		p="$( /bin/busybox httpd -d ${x#printer=} )"
-		echo HERE WITH $p
+		echo $?
+		sleep 1
+		p="$( /bin/busybox httpd -d ${x#printer=} )"
+		echo $?
+		sleep 2
+		p="$( /bin/busybox httpd -d ${x#printer=} )"
+		echo $?
+		sleep 5
 		IFS=, read -ra P <<< "$p"
 		logs "Printer name: ${P[0]}"
 		logs "Printer device URI: ${P[1]}"
