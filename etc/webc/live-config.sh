@@ -1,4 +1,6 @@
-#!/bin/bash -x
+#!/bin/bash
+exec >/tmp/live$$.log 2>&1                                                                                                                                              
+set -x 
 # Setting up Webconverger system as root user
 . /etc/webc/functions.sh
 . /etc/webc/webc.conf
@@ -119,6 +121,7 @@ for x in $( cmdline ); do
 
 	printer=*)
 		p="$( /bin/busybox httpd -d ${x#printer=} )"
+		echo HERE WITH $p
 		IFS=, read -ra P <<< "$p"
 		logs "Printer name: ${P[0]}"
 		logs "Printer device URI: ${P[1]}"
